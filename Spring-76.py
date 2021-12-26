@@ -316,7 +316,7 @@ class compression:
                                                 
                                         else:
                                                 e=e+1
-                                                e=e*2
+                                              
                                                 g=g+1
                                                 
                                                 
@@ -341,7 +341,7 @@ class compression:
                                                 
                                                 else:
                                                         e=e+1
-                                                        e=e*2
+                                                       
                                                         g=g+1
 
                                                 if g>(2**16)-1:
