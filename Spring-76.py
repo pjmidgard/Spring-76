@@ -196,7 +196,7 @@ class compression:
                                     if lenf7>=(2**40)-1:
                                         raise SystemExit
                                         
-                                    if lenf7<=0:
+                                    if lenf7<=204800:
                                       raise SystemExit
                                       
                                       
