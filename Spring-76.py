@@ -196,7 +196,7 @@ class compression:
                                     if lenf7>=(2**40)-1:
                                         raise SystemExit
                                         
-                                    if lenf7<=204800:
+                                    if lenf7<=0:
                                       raise SystemExit
                                       
                                       
@@ -302,50 +302,55 @@ class compression:
                                     nameas=name+".b1" 
                                     ccc=1
                                     
-                                    e=(2**24)-1
+                                    e=(2**2)-1
                                     g=0
                                     f=0
                                     T6=0
                                     while f!=1:
                                         T1=T7%e
                                         if T1==0:
-                                                T6=T7//e
+                                                T7=T7//e
                                                 f=1
                                                 bit="0"
                                                         
                                                 
                                         else:
-                                                e=e-1
+                                                e=e+1
+                                                e=e*2
                                                 g=g+1
+                                                
+                                                
 
-                                        if g>(2**24)-1 or e<=1:
+                                        if g>(2**16)-1:
                                                 
                                                 f=1
                                          
                                   
-                                    if g>(2**24)-1:
+                                    if g>(2**16)-1:
                                             T7=T7-1
-                                            e=(2**24)-1
+                                            e=(2**2)-1
                                             g=0
                                             f=0
                                             while f!=1:
                                                 T1=T7%e
                                                 if T1==0:
-                                                        T6=T7//e
+                                                        T7=T7//e
                                                         f=1
                                                         bit="1"
                                                         
                                                 
                                                 else:
-                                                        e=e-1
+                                                        e=e+1
+                                                        e=e*2
                                                         g=g+1
 
-                                                if g>(2**24)-1 or e<=1:
+                                                if g>(2**16)-1:
                                                         ccc=2
                                                         f=1
 		
-                                    		
                                     
+                                    if T7<=1:
+                                    	ccc=2
                                     
                                    
                                  
@@ -356,7 +361,7 @@ class compression:
                                     if ccc==1:
                                     		sda18=bin(g)[2:]
                                     		if   Circle_times2<=65535:
-                                    			h=24
+                                    			h=16
                                     		
                                     		
                                     if ccc==1:
@@ -373,7 +378,7 @@ class compression:
                                                                 z=z+1
                                     
                                     if ccc==1:
-                                    	 	sda17=bin(T6)[2:]
+                                    	 	sda17=bin(T7)[2:]
                                     	 	
                                     if ccc==2:
                                         	sda17=bin(T40)[2:]	
@@ -392,14 +397,14 @@ class compression:
                                             if lenfS!=0:
                                                     while ei!=lenfS:
                                                                         
-                                                        if sda21[ei:ei+25]!=sda22 and Spin!=2:
+                                                        if sda21[ei:ei+11]!=sda22 and Spin!=2:
                                                                 Spin=1
                                                                 Spin2=Spin2+1
 
-                                                        if sda21[ei:ei+25]==sda22:
+                                                        if sda21[ei:ei+11]==sda22:
                                                                 Spin=2
                                                         
-                                                        ei=ei+25
+                                                        ei=ei+17
                                                                 
                                                                 
                                     if Spin==1 or lenfS==0:
@@ -425,99 +430,20 @@ class compression:
                                             
                                     if ccc==1:
                                             sda24=sda24+szx4+sda23
-                                            sda2=sda17
                                     print(g)
-                                                                       
-                                            
+                                    
+                                    sda2=sda17
 
-                                    if   Circle_times2==65535:
-                                    	lenfS=len(sda21)
-                                    	lenfS=lenfS//25
-                                    	
-
-                                    if   Circle_times2==65535:
-                                            #bits
-                                        if lenfS<2**1:
-                                                ht=16
-                                                ht1=0#1
-                                        if lenfS<2**2:
-                                                ht=15
-                                                ht1=1#2
-
-                                        if lenfS<2**3:
-                                                ht=14
-                                                ht1=2#3
-
-                                        if lenfS<2**4:
-                                                ht=13
-                                                ht1=3#4
+                             	
 
 
-                                        if lenfS<2**5:
-                                                ht=12
-                                                ht1=4#5
-
-                                        if lenfS<2**6:
-                                                ht=11
-                                                ht1=5#6
-
-                                        if lenfS<2**7:
-                                                ht=10
-                                                ht1=6#7
-
-                                        if lenfS<2**8:
-                                                ht=9
-                                                ht1=7#8
-
-                                        if lenfS<2**9:
-                                                ht=8
-                                                ht1=8#9
-                                        
-                                        if lenfS<2**10:
-                                                ht=7
-                                                ht1=9#10
-
-                                        if lenfS<2**11:
-                                                ht=6
-                                                ht1=10#11
-                                                
-                                        if lenfS<2**12:
-                                                ht=5
-                                                ht1=11#12
-
-                                        if lenfS<2**13:
-                                                ht=4
-                                                ht1=12#13
-
-                                        if lenfS<2**14:
-                                                ht=2
-                                                ht1=13#14
-
-                                        if lenfS<2**15:
-                                                ht=1
-                                                ht1=14#15
-
-                                        if lenfS<2**16:
-                                                ht=0
-                                                ht1=15#16
-
-                                        
-
-                                    if   Circle_times2==65535:
-                                            if lenfS!=0:
-                                                    ei=0
-                                                    while ei!=lenfS:
-                                                
-                                                        sda25=sda25+sda24[ei+15-ht1:ei+16]
-                                                        ei=ei+16
-                                                                
                                     
                                     if   Circle_times2==65535:
                                     
                                     		lenfSET=len(sda21)
 
                                     		
-                                    if   Circle_times2==65535:
+                                    if   Circle_times2==65535 or ccc==3:
 
                                             lenf=len(sda17)
                                             
@@ -532,7 +458,7 @@ class compression:
                                                          	szx6="0"+szx6
                                                          	z=z+1
                                             
-                                    if   Circle_times2==65535 and ccc==1:
+                                    if   Circle_times2==65535 and ccc==1 or ccc==3:
                                                 
                                     		sda17=sda17+sda25+sda21
 
@@ -547,14 +473,14 @@ class compression:
                                                                 while z<xc:
                                                                         szx="0"+szx
                                                                         z=z+1
-                                    if   Circle_times2==65535 and ccc==1:
+                                    if   Circle_times2==65535 and ccc==1 or ccc==3:
 
                                            sda17=szx6+sda26+szx+sda17
 
                                     if   Circle_times2==65535 and ccc==2:
                                             sda17=szx+sda17
 
-                                    if   Circle_times2==65535 or ccc==2:
+                                    if   Circle_times2==65535 or ccc==2 or ccc==3:
                                            
                                     		L=len(sda17)
                                     		n = int(sda17, 2)
