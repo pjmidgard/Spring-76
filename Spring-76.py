@@ -364,12 +364,7 @@ class compression:
                                   
                                     if ccc==1:
                                     	 	sda17=bin(T7)[2:]
-                                    	 	
-                                    if ccc==2:
-                                        	sda17=bin(T40)[2:]	
-                                        	
-                                    
-                                  
+                                    	
 
                                     if ccc==1:
                                             
