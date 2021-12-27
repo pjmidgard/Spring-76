@@ -295,7 +295,7 @@ class compression:
                                     T7 = int(sda3, 2)
                                     nameas=name+".bin" 
                                     ccc=1
-                                    
+                                    bit=""
                                     e=(2**24)-1
                                     g=0
                                     f=0
@@ -306,6 +306,7 @@ class compression:
                                                 T7=T7//e
                                                 f=1
                                                 bit="0"
+                                                
                                                         
                                                 
                                         else:
@@ -319,7 +320,7 @@ class compression:
                                                 f=1
                                          
                                   
-                                    if g>(2**24)-1 or e<=1:
+                                    if g>(2**22)-1 or e<=1:
                                             T7=T7-1
                                             e=(2**24)-1
                                             g=0
@@ -330,6 +331,7 @@ class compression:
                                                         T7=T7//e
                                                         f=1
                                                         bit="1"
+                                                        
                                                         
                                                 
                                                 else:
@@ -347,6 +349,7 @@ class compression:
                                 
                                     if T7==0:
                                             ccc=2
+                                    
                                  
 
                                     
@@ -378,7 +381,9 @@ class compression:
                                            
                                             
                                     if ccc==1:
+                                           
                                             sda17=sda17+bit+szx4+sda23
+                                            
                                             lenfS=len(sda17)
                                     
                                   
@@ -390,6 +395,7 @@ class compression:
                                             sda17=sda3
                                             
                                             Circle_times2=Circle_times2-1
+                                 
                                     sda2=sda17
 
                                    
