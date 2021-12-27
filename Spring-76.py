@@ -503,12 +503,8 @@ class compression:
                                     T4=0
                                     T5=0
                                     cc=0
-                                   
-	                                    
-                                   
-                                    
-                                    	
-                                    	
+
+                              
                                     if C==1:
                                         if   Circle_times2==0:
                                                 sda6=sda3[0:48]
@@ -571,7 +567,7 @@ class compression:
                                         
                                         if  Circle_times2==T:
                                         
-                                            if C==1:
+                                            if C==1 and T8!=0:
                                             	sda17=bin(T7)[3:]
                                             	lenf=len(sda17)
                                             	szx=""
@@ -584,6 +580,10 @@ class compression:
                                             	            	z=z+1
                                             	sda17=szx+sda17
                                     										
+                                            if C==1 and T8==0:
+                                                    sda17=sda3[48:]
+
+
                                             L=len(sda17)
                                            
                                           
