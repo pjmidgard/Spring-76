@@ -54,12 +54,7 @@ class compression:
                         	
                         	C=1
                         	
-                        if nameas[nac-3:nac]==".b2":
-                   
-                        	nameas=name[:nac-3]
-                        	nac=len(nameas)
-                        	
-                        	C=2
+                        
              
                     if i==1:
                         
@@ -287,8 +282,7 @@ class compression:
                                     ei=0
 
                                     Spin=0
-                                    if   Circle_times2==0:
-                                    	T40 = int(sda3, 2)
+                                    
                                     
                                     	
                                    
@@ -512,10 +506,7 @@ class compression:
                                    
 	                                    
                                    
-                                    if C==2:
-                                    	if   Circle_times2==0:
-                               	
-                                    		T40 = int(sda3, 2)
+                                    
                                     	
                                     	
                                     if C==1:
