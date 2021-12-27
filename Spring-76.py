@@ -514,6 +514,8 @@ class compression:
                                                 sda6=sda3[0:48]
                                                 T = int(sda6, 2)
                                                 sda3=sda3[48:]
+                                                lenf6=len(sda3)
+                                                
                                         
                                         sda4=sda3[lenf6-22:lenf6]
                                         sda5=sda3[lenf6-23:lenf6-22]
