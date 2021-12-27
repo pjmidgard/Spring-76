@@ -47,9 +47,9 @@ class compression:
                     ccc=0
 
                     if i==2:
-                        if nameas[nac-3:nac]==".bin":
+                        if nameas[nac-4:nac]==".bin":
                    
-                        	nameas=name[:nac-3]
+                        	nameas=name[:nac-4]
                         	nac=len(nameas)
                         	
                         	C=1
