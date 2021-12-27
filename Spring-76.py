@@ -47,7 +47,7 @@ class compression:
                     ccc=0
 
                     if i==2:
-                        if nameas[nac-3:nac]==".b1":
+                        if nameas[nac-3:nac]==".bin":
                    
                         	nameas=name[:nac-3]
                         	nac=len(nameas)
@@ -352,9 +352,8 @@ class compression:
                                     
                                  
                                     if ccc==1:
-                                    		nameas=name+".b1" 
-                                    if ccc==2:
-                                    		nameas=name+".b2" 
+                                    		nameas=name+".bin" 
+                                    
                                   
                                     if ccc==1:
                                     	 	sda17=bin(T7)[2:]
@@ -583,26 +582,7 @@ class compression:
                                             	            	szx="0"+szx
                                             	            	z=z+1
                                             	sda17=szx+sda17
-                                    
-                                            
-                                          	    	
-                                            if C==2:
-                                            		 
-                                            			sda17=bin(T40)[2:]
-                                            			lenf=len(sda17)
-                                            			szx=""
-                                            			xc=8-lenf%8
-                                            			z=0
-                                            			if xc!=0:
-                                            			             if xc!=8:
-                                            			             	while z<xc:
-                                            			             		szx="0"+szx
-                                            			             		z=z+1
-                                            			             					
-                                            			sda17=szx+sda17
-                                            																
-                                           
-                                            
+                                    										
                                             L=len(sda17)
                                            
                                           
