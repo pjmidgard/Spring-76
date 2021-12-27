@@ -296,7 +296,7 @@ class compression:
                                     nameas=name+".b1" 
                                     ccc=1
                                     
-                                    e=(2**24)-1
+                                    e=(2**9)-1
                                     g=0
                                     f=0
                                     T6=0
@@ -314,14 +314,14 @@ class compression:
                                                 g=g+1
                         
 
-                                        if g>(2**22)-1 or e<=1:
+                                        if g>(2**7)-1 or e<=1:
                                                 
                                                 f=1
                                          
                                   
-                                    if g>(2**24)-1 or e<=1:
+                                    if g>(2**7)-1 or e<=1:
                                             T7=T7-1
-                                            e=(2**24)-1
+                                            e=(2**9)-1
                                             g=0
                                             f=0
                                             while f!=1:
@@ -337,7 +337,7 @@ class compression:
                                                         
                                                         g=g+1
 
-                                                if g>(2**22)-1 or e<=1 or T7<=1:
+                                                if g>(2**7)-1 or e<=1 or T7<=1:
                                                         ccc=2
                                                         f=1
 		
@@ -362,7 +362,7 @@ class compression:
                                     if ccc==1:
                                             
                                             sda23=bin(g)[2:]
-                                            hr=22
+                                            hr=7
                                             
                                         	
                                             lenf=len(sda23)
@@ -513,21 +513,21 @@ class compression:
                                                 lenf6=len(sda3)
                                                 
                                         
-                                        sda4=sda3[lenf6-22:lenf6]
-                                        sda5=sda3[lenf6-23:lenf6-22]
-                                        sda3=sda3[lenf6-23:]
+                                        sda4=sda3[lenf6-7:lenf6]
+                                        sda5=sda3[lenf6-7:lenf6-8]
+                                        sda3=sda3[0:lenf6-8]
                                 
                                         if sda5=="1":
                                                 T7 = int(sda3, 2)
                                                 T8 = int(sda4, 2)
-                                                e=(2**24)-1
+                                                e=(2**9)-1
                                                 j=e+T8
                                                 T7=T7*j
                                                 T7=T7+1
                                         if sda5=="0":
                                                 T7 = int(sda3, 2)
                                                 T8 = int(sda4, 2)
-                                                e=(2**24)-1
+                                                e=(2**9)-1
                                                 j=e+T8
                                                 T7=T7*j
                                
