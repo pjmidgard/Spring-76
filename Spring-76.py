@@ -385,6 +385,7 @@ class compression:
                                     
                                     Circle_times2=Circle_times2+1
                                     if ccc==2:
+                                            sda17=sda3
                                             Circle_times2=Circle_times2-1
                                     sda2=sda17
 
