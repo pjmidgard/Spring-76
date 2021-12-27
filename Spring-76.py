@@ -395,14 +395,16 @@ class compression:
 
                                     
                                     
-                                   
+                                    Circle_times2=Circle_times2+1
+                                    if ccc==2:
+                                            Circle_times2=Circle_times2-1
                                     sda2=sda17
 
                                    
                                     		
 
                                     		
-                                    if   lenfS<=80:
+                                    if   lenfS<=80 or ccc==2:
 
                                             lenf=len(sda17)
                                             
@@ -422,7 +424,7 @@ class compression:
                                                 
                                     		
 
-                                    if   lenfS<=80:
+                                    if   lenfS<=80 or ccc==2:
 
                                                 lenf=len(sda17)
                                                 szx=""
@@ -436,12 +438,12 @@ class compression:
 
                                            
 
-                                    if   lenfS<=80:
+                                    if   lenfS<=80 and ccc==2:
                                             sda17=szx6+sda26+szx+sda17
 
 
 
-                                    if   lenfS<=80:
+                                    if   lenfS<=80 or ccc==2:
                                            
                                     		L=len(sda17)
                                     		n = int(sda17, 2)
@@ -645,3 +647,4 @@ d=compression()
 
 xw1=d.cryptograpy_compression4()
 print(xw1)
+=
