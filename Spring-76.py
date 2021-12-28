@@ -131,6 +131,7 @@ class compression:
                         sda24=""
                         sda25=""
                         sda26=""
+                        Spin=0
                         while END_working<10:
                        
                             Circle_times3=Circle_times3+1
@@ -296,6 +297,7 @@ class compression:
                                     nameas=name+".bin" 
                                     ccc=1
                                     bit=""
+                                    
                                     e=(2**24)-1
                                     g=0
                                     f=0
@@ -306,6 +308,7 @@ class compression:
                                                 T7=T7//e
                                                 f=1
                                                 bit="0"
+                                                
                                                 
                                                         
                                                 
@@ -321,34 +324,18 @@ class compression:
                                          
                                   
                                     if g>(2**22)-1 or e<=1:
-                                            T7=T7-1
-                                            e=(2**24)-1
+                                            T7=T7-2
                                             g=0
-                                            f=0
-                                            while f!=1:
-                                                T1=T7%e
-                                                if T1==0:
-                                                        T7=T7//e
-                                                        f=1
-                                                        bit="1"
-                                                        
-                                                        
-                                                
-                                                else:
-                                                        e=e+1
-                                                        
-                                                        g=g+1
-
-                                                if g>(2**22)-1 or e<=1 or T7<=1:
-                                                        ccc=2
-                                                        f=1
+                                            bit="1"
+                                            bits="1"
+            
 		
                                     		
                                     
                                     
                                 
-                                    if T7==0:
-                                            ccc=2
+                                    
+                                           
                                     
                                  
 
@@ -380,17 +367,32 @@ class compression:
 
                                            
                                             
-                                    if ccc==1:
+                                    if ccc==1 and bit=="0":
                                            
-                                            sda17=sda17+bit+szx4+sda23
+                                            sda17=sda17+szx4+sda23+bits
+                                            bits="0"
+                                            Spin=0
                                             
-                                            lenfS=len(sda17)
+                                    if ccc==1 and bit=="1":
+                                    	sda17=sda17
+                                    	bits="1"
+                                    	Spin=Spin+1
+                                    	Circle_times2=Circle_times2-1
+                                          
+                                            
+                                     
+                                            
                                     
                                   
-
                                     
+                                    if Spin==2:
+                                    	ccc=2
                                     
+                                    lenfS=len(sda17)
+                                    
+                                   
                                     Circle_times2=Circle_times2+1
+                                    
                                     if ccc==2:
                                             sda17=sda3
                                             
@@ -524,8 +526,8 @@ class compression:
                                                 lenf6=len(sda3)
                                                 
                                         
-                                        sda4=sda3[lenf6-22:lenf6]
-                                        sda5=sda3[lenf6-23:lenf6-22]
+                                        sda4=sda3[lenf6-23:lenf6-1]
+                                        sda5=sda3[lenf6-1:lenf6]
                                         sda3=sda3[0:lenf6-23]
                                 
                                         if sda5=="1":
@@ -534,7 +536,7 @@ class compression:
                                                 e=(2**9)-1
                                                 j=e+T8
                                                 T7=T7*j
-                                                T7=T7+1
+                                                T7=T7+2
                                         if sda5=="0":
                                                 T7 = int(sda3, 2)
                                                 T8 = int(sda4, 2)
