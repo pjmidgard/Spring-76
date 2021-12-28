@@ -581,7 +581,7 @@ class compression:
                                         
                                         if  Circle_times2==T:
                                         
-                                            if C==1 and T8!=0:
+                                            if C==1 and T!=0:
                                             	sda17=bin(T7)[3:]
                                             	lenf=len(sda17)
                                             	szx=""
@@ -594,7 +594,7 @@ class compression:
                                             	            	z=z+1
                                             	sda17=szx+sda17
                                     										
-                                            if C==1 and T8==0:
+                                            if C==1 and T==0:
                                                     sda17=sda3[48:]
 
 
