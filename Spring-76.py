@@ -131,6 +131,7 @@ class compression:
                         sda24=""
                         sda25=""
                         sda26=""
+                        bits="0"
                         Spin=0
                         while END_working<10:
                        
